@@ -28,7 +28,7 @@ module.exports.questions = [{
           ]
 }, {
   topic: "day",
-  question: "day yang Anda inginkan ?",
+  question: "Hari yang Anda inginkan ?",
   options: [
               "Senin",
               "Selasa",
@@ -38,7 +38,8 @@ module.exports.questions = [{
           ]
 }, {
   topic: "time",
-  question: "Waktu perkuliahan yang Anda inginkan dimulai dari jam?",
+  question: "Waktu perkuliahan yang Anda inginkan dimulai jam? (Sesuai dengan jumlah sks)",
+  multi: true,
   options: [
               "07.00",
               "08.00",
@@ -59,17 +60,20 @@ module.exports.questions = [{
               "tegas",
               "jarang masuk",
               "suka bercanda",
-              "suka ngasih tugas / PR",
-              "suka bercanda"
+              "suka ngasih tugas",
+              "suka bercerita",
+              "cuek",
+              "baik"
           ]
-}];
+},
 
+];
 
 module.exports.data = [{
-  course:'Psikoper',
+  course:'Psikologi Persepsi',
   faculty:'FSRD',
   sks:'3',
-  day:'rabu',
+  day:'Rabu',
   time:'15.00',
   lecturer_type:'suka bercanda'
 },
@@ -77,10 +81,214 @@ module.exports.data = [{
   course:'Komposisi',
   faculty:'FSRD',
   sks:'3',
-  day:'selasa',
+  day:'Selasa',
   time:'09.00',
   lecturer_type:'jarang masuk'
-}];
+},
+{
+  course:'Kesehatan Lingkungan',
+  faculty:'FTSL',
+  sks:'3',
+  day:'Senin',
+  time:'07.00',
+  lecturer_type:'tegas'
+},
+{
+  course:'Ekonomi Teknik',
+  faculty:'FTI',
+  sks:'2',
+  day:'Selasa',
+  time:'14.00',
+  lecturer_type:'tegas'
+},
+{
+  course:'Psikologi Sosial',
+  faculty:'FSRD',
+  sks:'2',
+  day:'Selasa',
+  time:'13.00',
+  lecturer_type:'suka ngasih tugas'
+},
+{
+  course:'Pendidikan Anti Korupsi',
+  faculty:'FTI',
+  sks:'2',
+  day:'Rabu',
+  time:'15.00',
+  lecturer_type:'suka bercerita'
+},
+{
+  course:'Hukum Perburuhan',
+  faculty:'FTI',
+  sks:'2',
+  day:'Jumat',
+  time:'08.00',
+  lecturer_type:'cuek'
+},
+{
+  course:'Studium Generale',
+  faculty:'FTI',
+  sks:'3',
+  day:'Rabu',
+  time:'10.00',
+  lecturer_type:'cuek'
+},
+{
+  course:'Lingkungan untuk Penyembuhan',
+  faculty:'SF',
+  sks:'2',
+  day:'Kamis',
+  time:'16.00',
+  lecturer_type:'jarang masuk'
+},
+{
+  course:'Game Design',
+  faculty:'FSRD',
+  sks:'3',
+  day:'Senin',
+  time:'13.00',
+  lecturer_type:'suka ngasih tugas'
+},
+{
+  course:'Astronomi Lingkungan',
+  faculty:'FMIPA',
+  sks:'2',
+  day:'Kamis',
+  time:'11.00',
+  lecturer_type:'suka ngasih tugas'
+},
+{
+  course:'Financial Planning',
+  faculty:'SBM',
+  sks:'3',
+  day:'Rabu',
+  time:'07.00',
+  lecturer_type:'cuek'
+},
+{
+  course:'Tech Based Business',
+  faculty:'SBM',
+  sks:'3',
+  day:'Selasa',
+  time:'16.00',
+  lecturer_type:'tegas'
+},
+{
+  course:'Representasi Pengetahuan dan Penalaran',
+  faculty:'STEI',
+  sks:'3',
+  day:'Rabu',
+  time:'09.00',
+  lecturer_type:'baik'
+},
+{
+  course:'Pembelajaran Mesin',
+  faculty:'STEI',
+  sks:'3',
+  day:'Kamis',
+  time:'09.00',
+  lecturer_type:'suka bercerita'
+},
+{
+  course:'Sistem Informasi Lanjut',
+  faculty:'STEI',
+  sks:'3',
+  day:'Selasa',
+  time:'07.00',
+  lecturer_type:'baik'
+},
+{
+  course:'Kriptografi',
+  faculty:'STEI',
+  sks:'3',
+  day:'Senin',
+  time:'11.00',
+  lecturer_type:'suka ngasih tugas'
+},
+{
+  course:'Interpretasi dan Pengolahan Citra',
+  faculty:'STEI',
+  sks:'3',
+  day:'Jumat',
+  time:'13.00',
+  lecturer_type:'suka ngasih tugas'
+},
+{
+  course:'Pengembagan Aplikasi Terdistribusi',
+  faculty:'STEI',
+  sks:'3',
+  day:'Kamis',
+  time:'14.00',
+  lecturer_type:'jarang masuk'
+},
+{
+  course:'Manajemen Proyek Perangkat Lunak',
+  faculty:'STEI',
+  sks:'2',
+  day:'Selasa',
+  time:'12.00',
+  lecturer_type:'suka bercanda'
+},
+{
+  course:'Interaksi Manusia dan Komputer',
+  faculty:'STEI',
+  sks:'3',
+  day:'Rabu',
+  time:'16.00',
+  lecturer_type:'cuek'
+},
+{
+  course:'Manajemen Basis Data',
+  faculty:'STEI',
+  sks:'2',
+  day:'Senin',
+  time:'09.00',
+  lecturer_type:'tegas'
+},
+{
+  course:'Teori Bahasa Formal dan Otomata',
+  faculty:'STEI',
+  sks:'3',
+  day:'Kamis',
+  time:'11.00',
+  lecturer_type:'baik'
+},
+{
+  course:'Jaringan Komputer',
+  faculty:'STEI',
+  sks:'3',
+  day:'Jumat',
+  time:'9.00',
+  lecturer_type:'suka bercerita'
+},
+{
+  course:'Logika Informatika',
+  faculty:'STEI',
+  sks:'3',
+  day:'Senin',
+  time:'07.00',
+  lecturer_type:'tegas'
+},
+{
+  course:'Matematika Diskrit',
+  faculty:'STEI',
+  sks:'3',
+  day:'Senin',
+  time:'13.00',
+  lecturer_type:'baik'
+},
+{
+  course:'Algoritma dan Struktur Data',
+  faculty:'STEI',
+  sks:'4',
+  day:'Senin',
+  time:'14.00',
+  lecturer_type:'tegas'
+},
+
+
+]
+
 
 },{}],2:[function(require,module,exports){
 var expert = require("./lib/expert.js"),
@@ -112,7 +320,7 @@ courses.data.forEach(function(course){
   concepts['courses'][course.course]
     .faculty(concepts['faculty'][course.faculty])
     .sks(concepts['sks'][course.sks])
-    // .day(concepts['day'][course.day])
+    .day(concepts['day'][course.day])
     .time(concepts['time'][course.time])
     .lecturer_type(concepts['lecturer_type'][course.lecturer_type])
   console.log("a");
@@ -305,6 +513,7 @@ showQuestion(currentQuestionIdx);
 //     }
 
 // showDestinationQuestion(currentDestinationQuestionIndex);
+
 },{"./courses.js":1,"./lib/expert.js":3,"./script":6,"underscore":5}],3:[function(require,module,exports){
 /*
 Expert.js - Copyright (c) 2013 Ithai Levi

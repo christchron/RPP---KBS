@@ -27,7 +27,7 @@ courses.data.forEach(function(course){
   concepts['courses'][course.course]
     .faculty(concepts['faculty'][course.faculty])
     .sks(concepts['sks'][course.sks])
-    // .day(concepts['day'][course.day])
+    .day(concepts['day'][course.day])
     .time(concepts['time'][course.time])
     .lecturer_type(concepts['lecturer_type'][course.lecturer_type])
   console.log("a");
