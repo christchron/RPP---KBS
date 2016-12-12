@@ -13,5 +13,13 @@
   "dependencies": {
     "uglify-js": "^2.7.4",
     "underscore": "^1.8.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christchron/RPP---KBS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/christchron/RPP---KBS/issues"
+  },
+  "homepage": "https://github.com/christchron/RPP---KBS#readme"
 }
