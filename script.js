@@ -2,12 +2,11 @@ $ = require("./lib/jquery.min.js")
 
 module.exports = {};
 
-// Destination
-module.exports.renderDestination = function($el){
+module.exports.renderCourse = function($el){
   $('#app-destination').empty().append($el)
 }
 
-module.exports.askDestinationQuestion = function(question, option, callback){
+module.exports.askCourseQuestion = function(question, option, callback){
   var $options = [];
 
   option.values.forEach(function(o){
@@ -25,7 +24,7 @@ module.exports.askDestinationQuestion = function(question, option, callback){
                     </fieldset> \
                 </form>');
 
-  module.exports.renderDestination($form)
+  module.exports.renderCourse($form)
   $('#form-destination').submit(function(e){
     e.preventDefault();
     var chosen = $('#form-destination input[name=' + option.name + ']:checked').val();
@@ -36,7 +35,7 @@ module.exports.askDestinationQuestion = function(question, option, callback){
   })
 }
 
-module.exports.showDestinationAnswer = function(description, answer){
+module.exports.showCourseAnswer = function(description, answer){
   var $form = $('<form id="form-destination"> \
                     <fieldset> \
                       <legend>' + description + '</legend> \
@@ -44,10 +43,10 @@ module.exports.showDestinationAnswer = function(description, answer){
                     </fieldset> \
                 </form>');
 
-  module.exports.renderDestination($form)
+  module.exports.renderCourse($form)
 }
 
-module.exports.showDestinationError = function(description, error){
+module.exports.showCourseError = function(description, error){
   var $form = $('<form id="form-destination"> \
                     <fieldset> \
                       <legend>' + description + '</legend> \
@@ -55,68 +54,125 @@ module.exports.showDestinationError = function(description, error){
                     </fieldset> \
                 </form>');
 
-  module.exports.renderDestination($form)
+  module.exports.renderCourse($form)
 }
 
-// Accomodation
-module.exports.renderAccomodation = function($el){
-  $('#app-accomodation').empty().append($el)
-}
 
-module.exports.askAccomodationQuestion = function(question, option, callback){
-  var $options = [];
+// // Destination
+// module.exports.renderDestination = function($el){
+//   $('#app-destination').empty().append($el)
+// }
 
-  option.values.forEach(function(o){
-    $options.push(' \
-      <input id="' + o + '" type="' + (option.multi ? "checkbox" : "radio") + '" name="' + option.name + '" value="' + o + '"> \
-      <label class="cap" for="' + o + '">' + o + '</label> \
-    ')
-  })
+// module.exports.askDestinationQuestion = function(question, option, callback){
+//   var $options = [];
 
-  var $form = $('<form id="form-accomodation"> \
-                    <fieldset> \
-                    <legend>' + question + '</legend> \
-                    ' + $options.join('\n') + ' \
-                    <input type="submit" value="Submit" /> \
-                    </fieldset> \
-                </form>');
+//   option.values.forEach(function(o){
+//     $options.push(' \
+//       <input id="' + o + '" type="radio" name="' + option.name + '" value="' + o + '"> \
+//       <label class="cap" for="' + o + '">' + o + '</label> \
+//     ')
+//   })
 
-  module.exports.renderAccomodation($form)
-  $('#form-accomodation').submit(function(e){
-    e.preventDefault();
-    if (option.multi) {
-      var chosen = $('#form-accomodation input[name=' + option.name + ']:checked').map(function(){
-        return $(this).val();
-      }).get()
-    } else {
-      var chosen = $('#form-accomodation input[name=' + option.name + ']:checked').val();
-    }
+//   var $form = $('<form id="form-destination"> \
+//                     <fieldset> \
+//                     <legend>' + question + '</legend> \
+//                     ' + $options.join('\n') + ' \
+//                     <input type="submit" value="Submit" /> \
+//                     </fieldset> \
+//                 </form>');
 
-    console.log(chosen)
+//   module.exports.renderDestination($form)
+//   $('#form-destination').submit(function(e){
+//     e.preventDefault();
+//     var chosen = $('#form-destination input[name=' + option.name + ']:checked').val();
+//     console.log(chosen)
 
-    callback(chosen)
-    return false;
-  })
-}
+//     callback(chosen)
+//     return false;
+//   })
+// }
 
-module.exports.showAccomodationAnswer = function(description, answer){
-  var $form = $('<form id="form-accomodation"> \
-                    <fieldset> \
-                      <legend>' + description + '</legend> \
-                      <b class="cap">' + answer + '</b> \
-                    </fieldset> \
-                </form>');
+// module.exports.showDestinationAnswer = function(description, answer){
+//   var $form = $('<form id="form-destination"> \
+//                     <fieldset> \
+//                       <legend>' + description + '</legend> \
+//                       <b class="cap">' + answer + '</b> \
+//                     </fieldset> \
+//                 </form>');
 
-  module.exports.renderAccomodation($form)
-}
+//   module.exports.renderDestination($form)
+// }
 
-module.exports.showAccomodationError = function(description, error){
-  var $form = $('<form id="form-accomodation"> \
-                    <fieldset> \
-                      <legend>' + description + '</legend> \
-                      <b>' + error + '</b> \
-                    </fieldset> \
-                </form>');
+// module.exports.showDestinationError = function(description, error){
+//   var $form = $('<form id="form-destination"> \
+//                     <fieldset> \
+//                       <legend>' + description + '</legend> \
+//                       <b>' + error + '</b> \
+//                     </fieldset> \
+//                 </form>');
 
-  module.exports.renderAccomodation($form)
-}
+//   module.exports.renderDestination($form)
+// }
+
+// // Accomodation
+// module.exports.renderAccomodation = function($el){
+//   $('#app-accomodation').empty().append($el)
+// }
+
+// module.exports.askAccomodationQuestion = function(question, option, callback){
+//   var $options = [];
+
+//   option.values.forEach(function(o){
+//     $options.push(' \
+//       <input id="' + o + '" type="' + (option.multi ? "checkbox" : "radio") + '" name="' + option.name + '" value="' + o + '"> \
+//       <label class="cap" for="' + o + '">' + o + '</label> \
+//     ')
+//   })
+
+//   var $form = $('<form id="form-accomodation"> \
+//                     <fieldset> \
+//                     <legend>' + question + '</legend> \
+//                     ' + $options.join('\n') + ' \
+//                     <input type="submit" value="Submit" /> \
+//                     </fieldset> \
+//                 </form>');
+
+//   module.exports.renderAccomodation($form)
+//   $('#form-accomodation').submit(function(e){
+//     e.preventDefault();
+//     if (option.multi) {
+//       var chosen = $('#form-accomodation input[name=' + option.name + ']:checked').map(function(){
+//         return $(this).val();
+//       }).get()
+//     } else {
+//       var chosen = $('#form-accomodation input[name=' + option.name + ']:checked').val();
+//     }
+
+//     console.log(chosen)
+
+//     callback(chosen)
+//     return false;
+//   })
+// }
+
+// module.exports.showAccomodationAnswer = function(description, answer){
+//   var $form = $('<form id="form-accomodation"> \
+//                     <fieldset> \
+//                       <legend>' + description + '</legend> \
+//                       <b class="cap">' + answer + '</b> \
+//                     </fieldset> \
+//                 </form>');
+
+//   module.exports.renderAccomodation($form)
+// }
+
+// module.exports.showAccomodationError = function(description, error){
+//   var $form = $('<form id="form-accomodation"> \
+//                     <fieldset> \
+//                       <legend>' + description + '</legend> \
+//                       <b>' + error + '</b> \
+//                     </fieldset> \
+//                 </form>');
+
+//   module.exports.renderAccomodation($form)
+// }
