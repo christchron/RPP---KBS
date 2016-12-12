@@ -1,128 +1,76 @@
 module.exports = {};
 
 module.exports.questions = [{
-  about: "purpose",
-  question: "Apa tujuan Anda dalam melakukan travelling ?",
+  topic: "faculty",
+  question: "Fakultas yang Anda minati ?",
   options: [
-          "business",
-          "travelling",
-          "honeymoon",
-          "shopping",
-          "surfing",
-          "studying"]
+              "STEI",
+              "FTI",
+              "FTSL",
+              "FSRD",
+              "FTTM",
+              "FMIPA",
+              "FTMD",
+              "SAPPK",
+              "SBM",
+              "SF",
+              "SITH",
+              "FITB"
+          ]
 }, {
-  about: "budget",
-  question: "Berapa budget yang Anda sediakan untuk perjalanan ini ?",
+  topic: "sks",
+  question: "Jumlah sks yang Anda inginkan ?",
   options: [
-          "tinggi",
-          "sedang",
-          "rendah"]
+              "2",
+              "3",
+              "4"
+          ]
 }, {
-  about: "continent",
-  question: "Benua manakah yang ingin Anda kunjungi ?",
+  topic: "day",
+  question: "Hari yang Anda inginkan ?",
   options: [
-          "east asia",
-          "southeast asia",
-          "north america",
-          "south america",
-          "east europe",
-          "west europe"]
+              "Senin",
+              "Selasa",
+              "Rabu",
+              "Kamis",
+              "Jumat"
+          ]
 }, {
-  about: "popularity",
-  question: "Seberapa populer tujuan travel Anda yang Anda harapkan ?",
+  topic: "time",
+  question: "Waktu perkuliahan yang Anda inginkan dimulai dari jam?",
   options: [
-          "sangat populer",
-          "cukup populer",
-          "tidak populer"]
+              "07.00",
+              "08.00",
+              "09.00",
+              "10.00",
+              "11.00",
+              "12.00",
+              "13.00",
+              "14.00",
+              "15.00",
+              "16.00",
+              "17.00"
+          ]
 }, {
-  about: "season",
-  question: "Musim apakah yang Anda inginkan pada saat melakukan travelling ?",
+  topic: "lecturer_type",
+  question: "Karakteristik dosen yang Anda suka ?",
   options: [
-          "spring",
-          "summer",
-          "autumn",
-          "winter"]
-}];
+              "tegas",
+              "jarang masuk",
+              "suka bercanda",
+              "suka ngasih tugas / PR",
+              "suka bercanda"
+          ]
+},
+
+];
+
 
 module.exports.data = [{
-  course: '',
-  faculty: '',
-  department: '',
-  day: '',
-  hours: '',
-  time: '',
-  sks: '',
-  lecturer_type: ''
-}, {
-  course: '',
-  faculty: '',
-  department: '',
-  day: '',
-  hours: '',
-  time: '',
-  sks: '',
-  lecturer_type: ''
-}, {
-  course: '',
-  faculty: '',
-  department: '',
-  day: '',
-  hours: '',
-  time: '',
-  sks: '',
-  lecturer_type: ''
-}, {
-  course: '',
-  faculty: '',
-  department: '',
-  day: '',
-  hours: '',
-  time: '',
-  sks: '',
-  lecturer_type: ''
-}, {
-  course: '',
-  faculty: '',
-  department: '',
-  day: '',
-  hours: '',
-  time: '',
-  sks: '',
-  lecturer_type: ''
-}, {
-  course: '',
-  faculty: '',
-  department: '',
-  day: '',
-  hours: '',
-  time: '',
-  sks: '',
-  lecturer_type: ''
-}, {
-  course: '',
-  faculty: '',
-  department: '',
-  day: '',
-  hours: '',
-  time: '',
-  sks: '',
-  lecturer_type: ''
-},{
-  course: '',
-  faculty: '',
-  department: '',
-  day: '',
-  hours: '',
-  time: '',
-  sks: '',
-  lecturer_type: ''
-}, {
-  course: '',
-  faculty: '',
-  department: '',
-  day: '',
-  hours: '',
-  time: '',
-  sks: '',
-  lecturer_type: ''
+  course:'Psikoper',
+  faculty:'FSRD',
+  sks:'3',
+  day:'rabu',
+  time:'15.00',
+  Lecturer_type:'suka bercanda'
 }]
