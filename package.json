@@ -1,0 +1,17 @@
+{
+  "name": "rpp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify index.js -o bundle.js",
+    "bundle": "browserify index.js | uglifyjs > bundle.js",
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "uglify-js": "^2.7.4",
+    "underscore": "^1.8.3"
+  }
+}
