@@ -326,57 +326,6 @@ courses.data.forEach(function(course){
   console.log("a");
 });
 
-// var destinations = require('./destinations.js');
-// destinations.questions.forEach(function(order){
-//   order.options.forEach(function(option){
-//     concepts[order.about] = concepts[order.about] || {};
-//     concepts[order.about][option] = Concept.create({id: order.about + '-' + option})
-//   })
-
-//   relations[order.about] = Relation.create({id: '~' + order.about, inverseFor: Relation.create({id: order.about})})
-// });
-
-// destinations.data.forEach(function(destination){
-//   concepts['destinations'] = concepts['destinations'] || {};
-//   concepts['destinations'][destination.destination] = Concept.create({id: destination.destination});
-
-//   concepts['destinations'][destination.destination]
-//     .popularity(concepts['popularity'][destination.popularity])
-//     .purpose(concepts['purpose'][destination.purpose])
-//     .season(concepts['season'][destination.season])
-//     .budget(concepts['budget'][destination.budget])
-//     .continent(concepts['continent'][destination.continent])
-// });
-
-// var accomodations = require('./accomodations.js');
-// accomodations.questions.forEach(function(order){
-//   order.options.forEach(function(option){
-//     concepts[order.about] = concepts[order.about] || {};
-//     concepts[order.about][option] = Concept.create({id: order.about + '-' + option})
-//   })
-
-//   if (order.multi) {
-//     order.options.forEach(function(option){
-//       relations[order.about + option] = Relation.create({id: '~' + order.about + option, inverseFor: Relation.create({id: order.about + option})})
-//     })
-//   } else {
-//     relations[order.about] = Relation.create({id: '~' + order.about, inverseFor: Relation.create({id: order.about})})
-//   }
-// });
-// accomodations.data.forEach(function(accomodation){
-//   concepts['accomodations'] = concepts['accomodations'] || {};
-//   concepts['accomodations'][accomodation.accomodation] = Concept.create({id: accomodation.accomodation});
-
-//   concepts['accomodations'][accomodation.accomodation]
-//     .destination(concepts['destination'][accomodation.destination])
-//     .stars(concepts['stars'][accomodation.stars])
-//     .food(concepts['food'][accomodation.food])
-
-//   accomodation.facility.forEach(function(f){
-//     concepts['accomodations'][accomodation.accomodation]['facility' + f](concepts['facility'][f])
-//   })
-// });
-
 var currentQuestionIdx = 0,
     currentAnswers = [],
     showQuestion = function(currentQuestionIdx){
@@ -401,119 +350,19 @@ var currentQuestionIdx = 0,
           if (results.length > 0){
             lib.showCourseAnswer("Pilihan mata kuliah yang paling cocok adalah", _.map(results, function(c){return c.id; })[0])
           }else{
-            lib.showCourseError("Error", "Mata Kuliah Tidak Ditemukan")
+            lib.showCourseError("Error", "Mata Kuliah Tidak Ditemukan, Silahkan Refresh untuk mengulang")
           }
         }else{
           if(results.length > 0){
             showQuestion(++currentQuestionIdx)
           }else{
-            lib.showCourseError("Error", "Mata Kuliah Tidak Ditemukan")
+            lib.showCourseError("Error", "Mata Kuliah Tidak Ditemukan, Silahkan Refresh untuk mengulang")
           }
         }
       })
     }
 
 showQuestion(currentQuestionIdx);
-
-// var currentDestinationQuestionIndex = 0,
-//     currentDestinationAnswers = [],
-//     showDestinationQuestion = function(currentDestinationQuestionIndex){
-//       while (destinations.questions[currentDestinationQuestionIndex].skip) currentDestinationQuestionIndex++;
-
-//       lib.askDestinationQuestion(destinations.questions[currentDestinationQuestionIndex].question, {
-//         name: destinations.questions[currentDestinationQuestionIndex].about,
-//         values: destinations.questions[currentDestinationQuestionIndex].options
-//       }, function(answer){
-//         var about = destinations.questions[currentDestinationQuestionIndex].about;
-
-//         currentDestinationAnswers.push({
-//           about: about,
-//           answer: answer
-//         })
-
-//         var results = _.intersection.apply(this, currentDestinationAnswers.map(function(currentAnswer){
-//           return relations[currentAnswer.about](concepts[currentAnswer.about][currentAnswer.answer])
-//         }))
-
-//         if (currentDestinationQuestionIndex == destinations.questions.length - 1) {
-//           if (results.length > 0) {
-//             lib.showDestinationAnswer("Tujuan destinasi terbaik adalah", _.map(results, function(c){ return c.id; })[0])
-//             currentAccomodationAnswers.push({
-//               about: 'destination',
-//               answer: _.map(results, function(c){ return c.id; })[0]
-//             })
-
-//             showAccomodationQuestion(currentAccomodationQuestionIndex)
-//           } else {
-//             lib.showDestinationError("Error", "Destinasi Tidak Ditemukan")
-//           }
-//         } else {
-//           if (results.length > 0) {
-//             showDestinationQuestion(++currentDestinationQuestionIndex)
-//           } else {
-//             lib.showDestinationError("Error", "Destinasi Tidak Ditemukan")
-//           }
-//         }
-//       })
-//     },
-//     currentAccomodationQuestionIndex = 0,
-//     currentAccomodationAnswers = [],
-//     showAccomodationQuestion = function(currentAccomodationQuestionIndex){
-//       while (accomodations.questions[currentAccomodationQuestionIndex].skip) currentAccomodationQuestionIndex++;
-
-//       lib.askAccomodationQuestion(accomodations.questions[currentAccomodationQuestionIndex].question, {
-//         name: accomodations.questions[currentAccomodationQuestionIndex].about,
-//         values: accomodations.questions[currentAccomodationQuestionIndex].options,
-//         multi: accomodations.questions[currentAccomodationQuestionIndex].multi
-//       }, function(answer){
-//         window.d = answer
-//         console.log('answer', answer, typeof answer)
-//         var about = accomodations.questions[currentAccomodationQuestionIndex].about,
-//             multi = accomodations.questions[currentAccomodationQuestionIndex].multi;
-
-//         if (multi) {
-//           answer.forEach(function(a){
-//             currentAccomodationAnswers.push({
-//               multi: multi,
-//               about: about,
-//               answer: a
-//             })
-//           })
-//         } else {
-//           currentAccomodationAnswers.push({
-//             about: about,
-//             answer: answer
-//           })
-//         }
-
-//         // console.log('currentAccomodationAnswers', currentAccomodationAnswers)
-
-//         var results = _.intersection.apply(this, currentAccomodationAnswers.map(function(currentAnswer){
-//           if (currentAnswer.multi) {
-//             return relations[currentAnswer.about + currentAnswer.answer](concepts[currentAnswer.about][currentAnswer.answer])
-//           } else {
-//             return relations[currentAnswer.about](concepts[currentAnswer.about][currentAnswer.answer])
-//           }
-//         }))
-
-//         if (currentAccomodationQuestionIndex == accomodations.questions.length - 1) {
-//           if (results.length > 0) {
-//             lib.showAccomodationAnswer("Akomodasi terbaik adalah", _.map(results, function(c){ return c.id; })[0])
-//           } else {
-//             lib.showAccomodationError("Error", "Akomodasi Tidak Ditemukan")
-//           }
-//         } else {
-//           if (results.length > 0) {
-//             showAccomodationQuestion(++currentAccomodationQuestionIndex)
-//           } else {
-//             lib.showAccomodationError("Error", "Akomodasi Tidak Ditemukan")
-//           }
-//         }
-//       })
-//     }
-
-// showDestinationQuestion(currentDestinationQuestionIndex);
-
 },{"./courses.js":1,"./lib/expert.js":3,"./script":6,"underscore":5}],3:[function(require,module,exports){
 /*
 Expert.js - Copyright (c) 2013 Ithai Levi
@@ -2369,7 +2218,7 @@ module.exports.askCourseQuestion = function(question, option, callback){
 
   var $form = $('<form id="form-course"> \
                     <fieldset> \
-                    <legend style="text-align:center">' + question + '</legend> \
+                    <legend>' + question + '</legend> \
                     ' + $options.join('\n') + ' \
                     <input type="submit" value="Submit" /> \
                     </fieldset> \
@@ -2407,125 +2256,4 @@ module.exports.showCourseError = function(description, error){
 
   module.exports.renderCourse($form)
 }
-
-
-// // Destination
-// module.exports.renderDestination = function($el){
-//   $('#app-destination').empty().append($el)
-// }
-
-// module.exports.askDestinationQuestion = function(question, option, callback){
-//   var $options = [];
-
-//   option.values.forEach(function(o){
-//     $options.push(' \
-//       <input id="' + o + '" type="radio" name="' + option.name + '" value="' + o + '"> \
-//       <label class="cap" for="' + o + '">' + o + '</label> \
-//     ')
-//   })
-
-//   var $form = $('<form id="form-destination"> \
-//                     <fieldset> \
-//                     <legend>' + question + '</legend> \
-//                     ' + $options.join('\n') + ' \
-//                     <input type="submit" value="Submit" /> \
-//                     </fieldset> \
-//                 </form>');
-
-//   module.exports.renderDestination($form)
-//   $('#form-destination').submit(function(e){
-//     e.preventDefault();
-//     var chosen = $('#form-destination input[name=' + option.name + ']:checked').val();
-//     console.log(chosen)
-
-//     callback(chosen)
-//     return false;
-//   })
-// }
-
-// module.exports.showDestinationAnswer = function(description, answer){
-//   var $form = $('<form id="form-destination"> \
-//                     <fieldset> \
-//                       <legend>' + description + '</legend> \
-//                       <b class="cap">' + answer + '</b> \
-//                     </fieldset> \
-//                 </form>');
-
-//   module.exports.renderDestination($form)
-// }
-
-// module.exports.showDestinationError = function(description, error){
-//   var $form = $('<form id="form-destination"> \
-//                     <fieldset> \
-//                       <legend>' + description + '</legend> \
-//                       <b>' + error + '</b> \
-//                     </fieldset> \
-//                 </form>');
-
-//   module.exports.renderDestination($form)
-// }
-
-// // Accomodation
-// module.exports.renderAccomodation = function($el){
-//   $('#app-accomodation').empty().append($el)
-// }
-
-// module.exports.askAccomodationQuestion = function(question, option, callback){
-//   var $options = [];
-
-//   option.values.forEach(function(o){
-//     $options.push(' \
-//       <input id="' + o + '" type="' + (option.multi ? "checkbox" : "radio") + '" name="' + option.name + '" value="' + o + '"> \
-//       <label class="cap" for="' + o + '">' + o + '</label> \
-//     ')
-//   })
-
-//   var $form = $('<form id="form-accomodation"> \
-//                     <fieldset> \
-//                     <legend>' + question + '</legend> \
-//                     ' + $options.join('\n') + ' \
-//                     <input type="submit" value="Submit" /> \
-//                     </fieldset> \
-//                 </form>');
-
-//   module.exports.renderAccomodation($form)
-//   $('#form-accomodation').submit(function(e){
-//     e.preventDefault();
-//     if (option.multi) {
-//       var chosen = $('#form-accomodation input[name=' + option.name + ']:checked').map(function(){
-//         return $(this).val();
-//       }).get()
-//     } else {
-//       var chosen = $('#form-accomodation input[name=' + option.name + ']:checked').val();
-//     }
-
-//     console.log(chosen)
-
-//     callback(chosen)
-//     return false;
-//   })
-// }
-
-// module.exports.showAccomodationAnswer = function(description, answer){
-//   var $form = $('<form id="form-accomodation"> \
-//                     <fieldset> \
-//                       <legend>' + description + '</legend> \
-//                       <b class="cap">' + answer + '</b> \
-//                     </fieldset> \
-//                 </form>');
-
-//   module.exports.renderAccomodation($form)
-// }
-
-// module.exports.showAccomodationError = function(description, error){
-//   var $form = $('<form id="form-accomodation"> \
-//                     <fieldset> \
-//                       <legend>' + description + '</legend> \
-//                       <b>' + error + '</b> \
-//                     </fieldset> \
-//                 </form>');
-
-//   module.exports.renderAccomodation($form)
-// }
-
 },{"./lib/jquery.min.js":4}]},{},[2]);
