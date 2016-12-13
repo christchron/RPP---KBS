@@ -3,7 +3,7 @@ $ = require("./lib/jquery.min.js")
 module.exports = {};
 
 module.exports.renderCourse = function($el){
-  $('#app-destination').empty().append($el)
+  $('#app-course').empty().append($el)
 }
 
 module.exports.askCourseQuestion = function(question, option, callback){
@@ -16,7 +16,7 @@ module.exports.askCourseQuestion = function(question, option, callback){
     ')
   })
 
-  var $form = $('<form id="form-destination"> \
+  var $form = $('<form id="form-course"> \
                     <fieldset> \
                     <legend>' + question + '</legend> \
                     ' + $options.join('\n') + ' \
@@ -25,9 +25,9 @@ module.exports.askCourseQuestion = function(question, option, callback){
                 </form>');
 
   module.exports.renderCourse($form)
-  $('#form-destination').submit(function(e){
+  $('#form-course').submit(function(e){
     e.preventDefault();
-    var chosen = $('#form-destination input[name=' + option.name + ']:checked').val();
+    var chosen = $('#form-course input[name=' + option.name + ']:checked').val();
     console.log(chosen)
 
     callback(chosen)
@@ -36,7 +36,7 @@ module.exports.askCourseQuestion = function(question, option, callback){
 }
 
 module.exports.showCourseAnswer = function(description, answer){
-  var $form = $('<form id="form-destination"> \
+  var $form = $('<form id="form-course"> \
                     <fieldset> \
                       <legend>' + description + '</legend> \
                       <b class="cap">' + answer + '</b> \
@@ -47,7 +47,7 @@ module.exports.showCourseAnswer = function(description, answer){
 }
 
 module.exports.showCourseError = function(description, error){
-  var $form = $('<form id="form-destination"> \
+  var $form = $('<form id="form-course"> \
                     <fieldset> \
                       <legend>' + description + '</legend> \
                       <b>' + error + '</b> \
