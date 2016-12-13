@@ -257,7 +257,7 @@ module.exports.data = [{
   faculty:'STEI',
   sks:'3',
   day:'Jumat',
-  time:'9.00',
+  time:'09.00',
   lecturer_type:'suka bercerita'
 },
 {
@@ -283,7 +283,7 @@ module.exports.data = [{
   day:'Senin',
   time:'14.00',
   lecturer_type:'tegas'
-},
+}
 
 
 ]

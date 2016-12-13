@@ -258,7 +258,7 @@ module.exports.data = [{
   faculty:'STEI',
   sks:'3',
   day:'Jumat',
-  time:'9.00',
+  time:'09.00',
   lecturer_type:'suka bercerita'
 },
 {
@@ -266,7 +266,7 @@ module.exports.data = [{
   faculty:'STEI',
   sks:'3',
   day:'Senin',
-  time:'07.00',
+  time:'13.00',
   lecturer_type:'tegas'
 },
 {
@@ -275,7 +275,7 @@ module.exports.data = [{
   sks:'3',
   day:'Senin',
   time:'13.00',
-  lecturer_type:'baik'
+  lecturer_type:'tegas'
 },
 {
   course:'Algoritma dan Struktur Data',
@@ -284,7 +284,7 @@ module.exports.data = [{
   day:'Senin',
   time:'14.00',
   lecturer_type:'tegas'
-},
+}
 
 
 ]
