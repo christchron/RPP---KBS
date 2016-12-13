@@ -2369,7 +2369,7 @@ module.exports.askCourseQuestion = function(question, option, callback){
 
   var $form = $('<form id="form-course"> \
                     <fieldset> \
-                    <legend>' + question + '</legend> \
+                    <legend style="text-align:center">' + question + '</legend> \
                     ' + $options.join('\n') + ' \
                     <input type="submit" value="Submit" /> \
                     </fieldset> \
@@ -2527,4 +2527,5 @@ module.exports.showCourseError = function(description, error){
 
 //   module.exports.renderAccomodation($form)
 // }
+
 },{"./lib/jquery.min.js":4}]},{},[2]);
